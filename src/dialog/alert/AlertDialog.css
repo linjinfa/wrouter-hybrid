@@ -1,0 +1,150 @@
+.alert-dialog-container {
+    position: relative;
+    width: 76%;
+    height: auto;
+    background-color: #ffffff;
+    border-radius: 13px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding-bottom: 24px;
+    background-image: url("../assets/bg_logo.png");
+    background-repeat: no-repeat;
+    background-position: right top;
+    background-size: 35%;
+}
+
+.alert-dialog-top-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.alert-dialog-title {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    align-self: flex-start;
+    text-align: center;
+    margin-top: 24px;
+    margin-left: 24px;
+    margin-right: 24px;
+    color: #CCCCCC;
+    font-size: 17px;
+    font-weight: bold;
+    font-family: PingFangSC-Medium;
+}
+
+.alert-dialog-subtitle {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    align-self: flex-start;
+    margin-top: 16px;
+    margin-left: 24px;
+    margin-right: 24px;
+    margin-bottom: 28px;
+    color: #333333;
+    font-size: 17px;
+    font-weight: bold;
+    font-family: PingFangSC-Medium;
+}
+
+.alert-dialog-content-container {
+    width: 100%;
+    box-sizing: border-box;
+    padding-left: 24px;
+    padding-right: 24px;
+    margin-bottom: 20px;
+    margin-top: -10px;
+}
+
+.alert-dialog-horizontal-line {
+    width: 100%;
+    height: 1px;
+    background-color: #d9dde3;
+    -webkit-transform: scaleY(0.7);
+    transform: scaleY(0.7);
+}
+
+.alert-dialog-bottom-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    box-sizing: border-box;
+    width: 100%;
+    height: 44px;
+    padding-left: 24px;
+    padding-right: 24px;
+}
+
+.alert-dialog-vertical-line {
+    width: 1px;
+    height: 100%;
+    background-color: #d9dde3;
+}
+
+.alert-dialog-bottom-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 0.7;
+    height: 100%;
+    font-size: 16px;
+    text-align: center;
+    border-radius: 4px;
+    font-family: PingFangSC-Regular;
+}
+
+.alert-dialog-bottom-left-button {
+    margin-right: 22px;
+    color: #AAAAAA;
+    background-color: #F8F9FF;
+}
+
+.alert-dialog-bottom-right-button {
+    color: #FFFFFF;
+    background-color: #4F7AFD;
+}
+
+.alert-dialog-close-img {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding-top: 20px;
+    padding-right: 20px;
+    padding-left: 5px;
+    padding-bottom: 5px;
+    width: 20px;
+    height: 20px;
+}
+
+    .alert-dialog-loading {
+    height: 54px;
+    width: 54px;
+    margin-top: 25px;
+    animation: turn 0.8s linear infinite;
+}
+
+@keyframes turn {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+    25% {
+        -webkit-transform: rotate(90deg);
+    }
+    50% {
+        -webkit-transform: rotate(180deg);
+    }
+    75% {
+        -webkit-transform: rotate(270deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}

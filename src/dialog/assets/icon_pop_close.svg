@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="40px" height="40px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>关闭</title>
+    <g id="关闭" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M28,7 C28.8284271,7 29.5,7.67157288 29.5,8.5 L29.5,18.5 L39.5,18.5 C40.3284271,18.5 41,19.1715729 41,20 C41,20.8284271 40.3284271,21.5 39.5,21.5 L29.5,21.5 L29.5,31.5 C29.5,32.3284271 28.8284271,33 28,33 C27.1715729,33 26.5,32.3284271 26.5,31.5 L26.5,21.5 L16.5,21.5 C15.6715729,21.5 15,20.8284271 15,20 C15,19.1715729 15.6715729,18.5 16.5,18.5 L26.5,18.5 L26.5,8.5 C26.5,7.67157288 27.1715729,7 28,7 Z" id="Combined-Shape" fill="#B2B7C2" transform="translate(28.000000, 20.000000) rotate(45.000000) translate(-28.000000, -20.000000) "></path>
+    </g>
+</svg>

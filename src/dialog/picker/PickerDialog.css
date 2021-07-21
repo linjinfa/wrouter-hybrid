@@ -1,0 +1,7 @@
+.picker-dialog-container{
+    width: 100%;
+    height: auto;
+    background: #FFFFFF;
+    position: fixed;    /**ios存在兼容问题 必须是fixed**/
+    bottom:0;
+}

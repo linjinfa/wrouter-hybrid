@@ -1,0 +1,40 @@
+.option-dialog-container{
+    width: 100%;
+    height: auto;
+    background: #FFFFFF;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    border-top-left-radius: 13px;
+    border-top-right-radius: 13px;
+}
+
+.option-dialog-top-container::before{
+    content: '';
+    width: 32px;
+    height: 4px;
+    background-color:  #DFDFDF;
+    border-radius: 4px;
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.option-dialog-top-container{
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+}
+
+.option-dialog-content-container{
+    width: 100%;
+    position: relative;
+    padding-top: 20px;
+}

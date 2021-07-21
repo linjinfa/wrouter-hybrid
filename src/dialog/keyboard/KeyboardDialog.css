@@ -1,0 +1,22 @@
+.keyboard-dialog-container{
+    width: 100%;
+    z-index: 1000;
+}
+
+@-webkit-keyframes keyboard-dialog-down-pop-in {
+    0% {
+        transform: translateY(100%);
+    }
+    100% {
+        transform: translateY(0%);
+    }
+}
+
+@-webkit-keyframes keyboard-dialog-down-pop-out {
+    0% {
+        transform: translateY(0%);
+    }
+    100% {
+        transform: translateY(100%);
+    }
+}

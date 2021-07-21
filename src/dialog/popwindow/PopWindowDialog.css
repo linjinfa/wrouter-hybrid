@@ -1,0 +1,56 @@
+.pop-window-dialog-clone-container{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    background-color: white;
+    z-index: 1;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transform: translateX(0px);
+    -webkit-transform: translateX(0px);
+}
+
+@-webkit-keyframes popwindow-up-pop-in {
+    0% {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0%);
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes popwindow-up-pop-out {
+    0% {
+        transform: translateY(0%);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+}
+
+@-webkit-keyframes popwindow-up-pop-scale-in {
+    0% {
+        transform-origin: center 0%;
+        transform: scaleY(0.7);
+    }
+    100% {
+        transform-origin: center 0%;
+        transform: scaleY(1);
+    }
+}
+
+@-webkit-keyframes popwindow-up-pop-scale-out {
+    0% {
+        transform-origin: center 0%;
+        transform: scaleY(1);
+    }
+    100% {
+        transform-origin: center 0%;
+        transform: scaleY(0);
+    }
+}

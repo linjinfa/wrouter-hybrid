@@ -1,0 +1,14 @@
+.loading-dialog-container{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.loading-dialog-loading-bar-container{
+    width: 116px;
+    height: 160px;
+    transform: scale(0.3) translateZ(0);
+    -webkit-animation: crm-common-loading-anim 1.2s steps(1) infinite;
+}
