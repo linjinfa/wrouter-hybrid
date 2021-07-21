@@ -9,11 +9,11 @@ import PropTypes from 'prop-types';
 
 import {
     Platform,
-} from '@components-hybrid';
+} from 'components-hybrid';
 
 import {
     KeyFramesUtil,
-} from '@components-hybrid/components';
+} from 'components-hybrid/components';
 
 import './LoadingDialogV2.css';
 

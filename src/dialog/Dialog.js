@@ -10,7 +10,7 @@ import './Dialog.css';
 import {
     StatusBar,
     Platform,
-} from '@components-hybrid';
+} from 'components-hybrid';
 
 /**
  *

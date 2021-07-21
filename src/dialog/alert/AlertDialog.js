@@ -8,7 +8,6 @@ import React, {Component} from "react";
 import PropTypes from 'prop-types'
 import '../Dialog';
 import './AlertDialog.css';
-import icLoading from '../assets/ic_alert_loading.png'
 
 import ICON_POP_CLOSE from '../assets/icon_pop_close.svg';
 
@@ -117,9 +116,20 @@ class AlertDialog extends Component {
      * @private
      */
     _renderSubTitle = ()=>{
-        let {title, subTitle} = this.state;
+        let {title, subTitle,isCheckCommon} = this.state;
         if(subTitle){
-            if(subTitle.indexOf('<') >= 0 && subTitle.indexOf('</') >= 0){
+            if((subTitle.indexOf('<') >= 0 && subTitle.indexOf('</') >= 0) || subTitle.indexOf('<br/>') >= 0){
+                if (isCheckCommon === true){
+                    return (
+                        <div
+                            className="alert-dialog-subtitle-container"
+                        >
+                            <div className='alert-dialog-subtitle-xiong'>
+                                <span dangerouslySetInnerHTML={{__html: subTitle}}></span>
+                            </div>
+                        </div>
+                    );
+                }
                 return (
                     <div className='alert-dialog-subtitle'>
                         <span dangerouslySetInnerHTML={{__html: subTitle}}></span>
@@ -131,18 +141,6 @@ class AlertDialog extends Component {
             );
         }
     };
-
-    /**
-     * loading
-     * @returns {*}
-     * @private
-     */
-    _renderLoading=()=>{
-        let{showLoading}=this.state;
-        if(showLoading){
-            return <img src={icLoading} className='alert-dialog-loading' alt="loading" />
-        }
-    }
 
     /**
      *
@@ -195,7 +193,6 @@ class AlertDialog extends Component {
             <div className='alert-dialog-container'>
                 {this._renderTitle()}
                 {this._renderClose()}
-                {this._renderLoading()}
                 {this._renderSubTitle()}
                 {this._renderContent()}
                 <div className='alert-dialog-bottom-container'>
