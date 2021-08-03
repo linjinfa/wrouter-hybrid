@@ -33,6 +33,13 @@ const routeStackList = [];
 export const allRouteMap = {};
 
 /**
+ * 是否启用界面切换动画
+ * @type {boolean}
+ * @private
+ */
+let _enableRouterAnim = true;
+
+/**
  *
  * @type {null}
  * @private
@@ -308,6 +315,23 @@ const WRouter = {
         loadRouteConfig(routeConfig, wrapped);
         handleHashChange();
     },
+
+    /**
+     * 是否启用界面切换动画
+     * @param enableRouterAnim
+     */
+    set enableRouterAnim(enableRouterAnim){
+        _enableRouterAnim = enableRouterAnim;
+    },
+
+    /**
+     * 获取界面切换动画是否启用
+     * @returns {*}
+     */
+    get enableRouterAnim(){
+        return _enableRouterAnim;
+    },
+
     /**
      *
      * @returns {null}

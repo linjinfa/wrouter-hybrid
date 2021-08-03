@@ -59,6 +59,11 @@ export function navigationAnim(option, callback){
             exitAnim = option.exitAnim;
         }
 
+        if(!window.WRouter.enableRouterAnim){   //禁用动画
+            enterAnim = undefined;
+            exitAnim = undefined;
+        }
+
         if(enterAnim){
             currRouteDiv.addEventListener('webkitAnimationEnd', currRouteWebkitAnimationEnd);
             currRouteDiv.style.webkitAnimation = `${enterAnim} ${DURATION} 1 both`;
@@ -178,6 +183,12 @@ export function backAnim(option, animationStartCallback, animationEndCallback){
     if(option.exitAnim !== undefined){
         exitAnim = option.exitAnim;
     }
+
+    if(!window.WRouter.enableRouterAnim){   //禁用动画
+        enterAnim = undefined;
+        exitAnim = undefined;
+    }
+
     if(enterAnim){
         currRouteDiv.addEventListener('webkitAnimationEnd', currRouteWebkitAnimationEnd);
         currRouteDiv.style.webkitAnimation = `${currDivCSSName} ${DURATION} 1 both`;
