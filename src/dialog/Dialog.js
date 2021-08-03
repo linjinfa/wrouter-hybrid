@@ -601,6 +601,8 @@ const notifyDialogOnShowAnimStart = (dialogInfo, timeout = false)=>{
         if(dialog && dialog.onShowAnimStart){
             dialog.onShowAnimStart();
         }
+        let showAnimStartListener = dialogInfo.option.showAnimStartListener;
+        showAnimStartListener && showAnimStartListener();
     };
     if(timeout){
         setTimeout(execOnShowAnim, 0);
@@ -618,6 +620,8 @@ const notifyDialogOnShowAnimEnd = (dialogInfo, timeout = false)=>{
         if(dialog && dialog.onShowAnimEnd){
             dialog.onShowAnimEnd();
         }
+        let showAnimEndListener = dialogInfo.option.showAnimEndListener;
+        showAnimEndListener && showAnimEndListener();
     };
     if(timeout){
         setTimeout(execOnShowAnimEnd, 0);
