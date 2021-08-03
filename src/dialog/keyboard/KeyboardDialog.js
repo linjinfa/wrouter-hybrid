@@ -12,7 +12,7 @@ import './KeyboardDialog.css';
 
 import {
     Keyboard,
-} from 'components-hybrid/components';
+} from 'components-hybrid/es/components';
 
 /**
  *

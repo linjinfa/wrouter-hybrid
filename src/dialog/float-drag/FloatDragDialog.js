@@ -12,7 +12,7 @@ import './FloatDragDialog.css';
 import {
     FloatRoute,
     KeyFramesUtil,
-} from 'components-hybrid/components';
+} from 'components-hybrid/es/components';
 
 import {
     StatusBar,

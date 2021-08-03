@@ -13,7 +13,7 @@ import {
 
 import {
     KeyFramesUtil,
-} from 'components-hybrid/components';
+} from 'components-hybrid/es/components';
 
 import './LoadingDialogV2.css';
 

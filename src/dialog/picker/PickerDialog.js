@@ -11,7 +11,7 @@ import './PickerDialog.css';
 import {
     HPicker,
     HDatePicker,
-} from 'components-hybrid/components';
+} from 'components-hybrid/es/components';
 
 /**
  *
