@@ -367,7 +367,7 @@ const _execAnim = (div, anim, webkitAnimationEndCallback)=>{
             webkitAnimationEndCallback && webkitAnimationEndCallback();
         };
         div.addEventListener('webkitAnimationEnd', webkitAnimationEnd);
-        div.style.webkitAnimation = `${anim} ${DURATION}`;
+        div.style.webkitAnimation = `${anim} ${DURATION} 1 both`;
     }else{
         div.style.webkitAnimation = '';
         webkitAnimationEndCallback && webkitAnimationEndCallback();

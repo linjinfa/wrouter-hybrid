@@ -61,13 +61,13 @@ export function navigationAnim(option, callback){
 
         if(enterAnim){
             currRouteDiv.addEventListener('webkitAnimationEnd', currRouteWebkitAnimationEnd);
-            currRouteDiv.style.webkitAnimation = `${enterAnim} ${DURATION} 1 forwards`;
+            currRouteDiv.style.webkitAnimation = `${enterAnim} ${DURATION} 1 both`;
         }else{
             currRouteWebkitAnimationEnd();
         }
         if(exitAnim){
             lastRouteDiv.addEventListener('webkitAnimationEnd', lastRouteWebkitAnimationEnd);
-            lastRouteDiv.style.webkitAnimation = `${exitAnim} ${DURATION} 1 forwards`;
+            lastRouteDiv.style.webkitAnimation = `${exitAnim} ${DURATION} 1 both`;
         }else{
             lastRouteWebkitAnimationEnd();
         }
@@ -180,13 +180,13 @@ export function backAnim(option, animationStartCallback, animationEndCallback){
     }
     if(enterAnim){
         currRouteDiv.addEventListener('webkitAnimationEnd', currRouteWebkitAnimationEnd);
-        currRouteDiv.style.webkitAnimation = `${currDivCSSName} ${DURATION} 1 forwards`;
+        currRouteDiv.style.webkitAnimation = `${currDivCSSName} ${DURATION} 1 both`;
     }else{
         currRouteWebkitAnimationEnd();
     }
     if(exitAnim){
         targetRouteDiv.addEventListener('webkitAnimationEnd', targetRouteWebkitAnimationEnd);
-        targetRouteDiv.style.webkitAnimation = `${lastDivCSSName} ${DURATION} 1 forwards`;
+        targetRouteDiv.style.webkitAnimation = `${lastDivCSSName} ${DURATION} 1 both`;
     }else{
         targetRouteWebkitAnimationEnd();
     }
