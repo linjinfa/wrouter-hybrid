@@ -182,15 +182,34 @@ const removeCloneTopDiv = (option, topDiv)=>{
     if(!global.popWindowDialog){
         //
         global.popWindowDialog = (Component, option, that, isDestroy = true)=>{
-            let{anchorContainer, offsetX = 0, offsetY = 0, dismissListener, dismissAnimStartListener, dismissAnimEndListener, fitNavigationBar = true, ...otherOption} = option;
+            let {
+                anchorContainer,
+                offsetX = 0,
+                offsetY = 0,
+                containerStyle,
+                contentStyle,
+                canceledOnTouchOutside,
+                showAnimStartListener,
+                showAnimEndListener,
+                dismissListener,
+                dismissAnimStartListener,
+                dismissAnimEndListener,
+                fitNavigationBar = true,
+                ...otherOption
+            } = option;
             let rect = anchorContainer.getBoundingClientRect();
 
+            let showMask = true;
+            if(option.showMask === false){
+                showMask = false;
+            }
             //
             let showAnim = 'popwindow-up-pop-in';
             let dismissAnim = 'popwindow-up-pop-out';
 
             let dialogOption = {
                 doMasAnim:true, //执行遮罩动画
+                showMask:showMask,
                 showAnim: showAnim,
                 dismissAnim: dismissAnim,
                 animChild:true,
@@ -198,19 +217,20 @@ const removeCloneTopDiv = (option, topDiv)=>{
                 maskStyle:{
                     marginTop:`${rect.bottom+offsetY}px`,
                 },
-                containerStyle:{
-                    // backgroundColor:'red',
-                },
+                containerStyle:containerStyle,
                 contentStyle:{
-                    // backgroundColor:'blue',
+                    ...contentStyle,
                     justifyContent:'flex-start',
                     alignItems:'flex-start',
                     left:`${rect.left+offsetX}px`,
                     top:`${rect.bottom+offsetY}px`,
                 },
+                showAnimStartListener:showAnimStartListener,
+                showAnimEndListener:showAnimEndListener,
                 dismissListener:dismissListener,
                 dismissAnimStartListener:dismissAnimStartListener,
                 dismissAnimEndListener:dismissAnimEndListener,
+                canceledOnTouchOutside:canceledOnTouchOutside,
                 showImmediately:option.showImmediately,
                 isDestroy:isDestroy,
                 data:{
