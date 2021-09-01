@@ -24,7 +24,7 @@
 }
 
 .dialog-toggle-mask .dialog-mask {
-    background: rgba(0, 0, 0, 0.4);
+    background: rgba(0, 0, 0, 0.6);
     display: block;
 }
 
@@ -121,14 +121,14 @@
     }
     100%{
         /*opacity: 1;*/
-        background: rgba(0,0,0,0.4);
+        background: rgba(0,0,0,0.6);
     }
 }
 
 @-webkit-keyframes dialog-mask-out {
     0% {
         /*opacity: 1;*/
-        background: rgba(0,0,0,0.4);
+        background: rgba(0,0,0,0.6);
     }
     100%{
         /*opacity: 0;*/
