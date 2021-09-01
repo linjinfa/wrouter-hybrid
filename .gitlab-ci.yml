@@ -1,5 +1,6 @@
 stages:
   - build
+  - notify
 
 cache:
   key: "$CI_JOB_STAGE-$CI_COMMIT_REF_SLUG"
@@ -25,6 +26,29 @@ build:
         - es/
   only:
     - master
+    
+succ:
+  stage: notify
+  extends: .base
+  cache: {}
+  script:
+    - xkc remind
+      -s markdown
+      -n "${GITLAB_USER_LOGIN}"
+      -m "【WRouter-Hybrid】<font color="warning">${CI_PROJECT_NAME}</font>执行CI构建成功。\n部署人：<font color="comment">${GITLAB_USER_LOGIN}</font>\n构建分支：<font color="comment">${CI_COMMIT_REF_NAME}</font>\n部署日志：[点击查看](${CI_PIPELINE_URL})"
+
+  when: on_success
+
+fail:
+  stage: notify
+  extends: .base
+  cache: {}
+  script:
+    - xkc remind
+      -s markdown
+      -n "${GITLAB_USER_LOGIN}"
+      -m "【WRouter-Hybrid】<font color="warning">${CI_PROJECT_NAME}</font>执行CI构建失败。\n> 构建分支：<font color="comment">${CI_COMMIT_REF_NAME}</font>\n部署人：<font color="comment">${GITLAB_USER_LOGIN}</font>\n失败流程：<font color="comment">${CI_JOB_STAGE}</font>\n部署日志：[点击查看](${CI_PIPELINE_URL})"
+  when: on_failure
 
 
 
