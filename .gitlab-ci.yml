@@ -9,7 +9,7 @@ cache:
 .base:
   image: node:lts
   tags:
-    - shareRunner
+    - autotest
 
 build:
   stage: build
