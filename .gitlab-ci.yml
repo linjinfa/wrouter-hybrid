@@ -10,7 +10,7 @@ cache:
 .base:
   image: node:lts
   tags:
-    - qa
+    - autotest
 
 build:
   stage: build
