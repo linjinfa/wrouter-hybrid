@@ -4,7 +4,8 @@ stages:
   
 variables:
   wxRoboKey: "bdf05e4e-d818-45d3-acc2-c1fe941bb6a2"
-  resultJsonStr: '{"msgtype":"markdown","markdown":{"content":"${GITLAB_USER_LOGIN}\n【WRouter-Hybrid】<font color=\"warning\">${CI_PROJECT_NAME}</font>执行CI构建成功。\n部署人：<font color=\"comment\">${GITLAB_USER_LOGIN}</font>\n构建分支：<font color=\"comment\">${CI_COMMIT_REF_NAME}</font>\n部署日志：[点击查看](${CI_PIPELINE_URL})"}}'
+  resultSuccessJsonStr: '{"msgtype":"markdown","markdown":{"content":"${GITLAB_USER_LOGIN}\n【WRouter-Hybrid】<font color=\"warning\">${CI_PROJECT_NAME}</font>执行CI构建成功。\n部署人：<font color=\"comment\">${GITLAB_USER_LOGIN}</font>\n构建分支：<font color=\"comment\">${CI_COMMIT_REF_NAME}</font>\n部署日志：[点击查看](${CI_PIPELINE_URL})"}}'
+  resultFailureJsonStr: '{"msgtype":"markdown","markdown":{"content":"${GITLAB_USER_LOGIN}\n【WRouter-Hybrid】<font color=\"warning\">${CI_PROJECT_NAME}</font>执行CI构建失败。\n部署人：<font color=\"comment\">${GITLAB_USER_LOGIN}</font>\n失败流程：<font color="comment">${CI_JOB_STAGE}</font>\n部署日志：[点击查看](${CI_PIPELINE_URL})"}}'
 
 cache:
   key: "$CI_JOB_STAGE-$CI_COMMIT_REF_SLUG"
@@ -37,10 +38,10 @@ succ:
   extends: .base
   cache: {}
   script:
-    - echo "${resultJsonStr}"
+    # - echo "${resultJsonStr}"
     - curl "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=${wxRoboKey}"
         -H "Content-Type:application/json"
-        -d "${resultJsonStr}"
+        -d "${resultFailureJsonStr}"
   when: on_success
 
 fail:
@@ -48,10 +49,10 @@ fail:
   extends: .base
   cache: {}
   script:
-    - xkc remind
-      -s markdown
-      -n "${GITLAB_USER_LOGIN}"
-      -m "【WRouter-Hybrid】<font color="warning">${CI_PROJECT_NAME}</font>执行CI构建失败。\n> 构建分支：<font color="comment">${CI_COMMIT_REF_NAME}</font>\n部署人：<font color="comment">${GITLAB_USER_LOGIN}</font>\n失败流程：<font color="comment">${CI_JOB_STAGE}</font>\n部署日志：[点击查看](${CI_PIPELINE_URL})"
+    # - echo "${resultJsonStr}"
+    - curl "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=${wxRoboKey}"
+        -H "Content-Type:application/json"
+        -d "${resultFailureJsonStr}"
   when: on_failure
 
 
