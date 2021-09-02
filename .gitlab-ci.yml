@@ -16,10 +16,11 @@ build:
   stage: build
   extends: .base
   script:
-    - npm config set registry http://npm.weimob.com
-    - npm install
-    - npm install weimob-gitlab-ci-tools@latest -g --registry http://npm.weimob.com
-    - npm run build
+    - echo 'build dhdhhhhh'
+    # - npm config set registry http://npm.weimob.com
+    # - npm install
+    # - npm install weimob-gitlab-ci-tools@latest -g --registry http://npm.weimob.com
+    # - npm run build
   artifacts:
       expire_in: 1 day
       paths:
