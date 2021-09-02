@@ -3,7 +3,7 @@ stages:
   - notify
   
 variables:
-  resultJsonStr: '{"msgtype":"text","text":{"content":"${GITLAB_USER_LOGIN}\n【WRouter-Hybrid】<font color=\"warning\">${CI_PROJECT_NAME}</font>执行CI构建成功。\n部署人：<font color=\"comment\">${GITLAB_USER_LOGIN}</font>\n构建分支：<font color=\"comment\">${CI_COMMIT_REF_NAME}</font>\n部署日志：[点击查看](${CI_PIPELINE_URL})"}}'
+  resultJsonStr: '{"msgtype":"markdown","markdown":{"content":"${GITLAB_USER_LOGIN}\n【WRouter-Hybrid】<font color=\"warning\">${CI_PROJECT_NAME}</font>执行CI构建成功。\n部署人：<font color=\"comment\">${GITLAB_USER_LOGIN}</font>\n构建分支：<font color=\"comment\">${CI_COMMIT_REF_NAME}</font>\n部署日志：[点击查看](${CI_PIPELINE_URL})"}}'
 
 cache:
   key: "$CI_JOB_STAGE-$CI_COMMIT_REF_SLUG"
