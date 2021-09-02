@@ -3,7 +3,7 @@ stages:
   - notify
   
 variables:
-  wxRoboKey: "bdf05e4e-d818-45d3-acc2-c1fe941bb6a2"
+  wxRobotKey: "bdf05e4e-d818-45d3-acc2-c1fe941bb6a2"
   resultSuccessJsonStr: '{"msgtype":"markdown","markdown":{"content":"${GITLAB_USER_LOGIN}\n【WRouter-Hybrid】<font color=\"warning\">${CI_PROJECT_NAME}</font>执行CI构建成功。\n部署人：<font color=\"comment\">${GITLAB_USER_LOGIN}</font>\n构建分支：<font color=\"comment\">${CI_COMMIT_REF_NAME}</font>\n部署日志：[点击查看](${CI_PIPELINE_URL})"}}'
   resultFailureJsonStr: '{"msgtype":"markdown","markdown":{"content":"${GITLAB_USER_LOGIN}\n【WRouter-Hybrid】<font color=\"warning\">${CI_PROJECT_NAME}</font>执行CI构建失败。\n部署人：<font color=\"comment\">${GITLAB_USER_LOGIN}</font>\n失败流程：<font color=\"comment\">${CI_JOB_STAGE}</font>\n部署日志：[点击查看](${CI_PIPELINE_URL})"}}'
 
@@ -39,9 +39,9 @@ succ:
   cache: {}
   script:
     # - echo "${resultJsonStr}"
-    - curl "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=${wxRoboKey}"
+    - curl "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=${wxRobotKey}"
         -H "Content-Type:application/json"
-        -d "${resultFailureJsonStr}"
+        -d "${resultSuccessJsonStr}"
   when: on_success
 
 fail:
@@ -50,7 +50,7 @@ fail:
   cache: {}
   script:
     # - echo "${resultJsonStr}"
-    - curl "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=${wxRoboKey}"
+    - curl "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=${wxRobotKey}"
         -H "Content-Type:application/json"
         -d "${resultFailureJsonStr}"
   when: on_failure
