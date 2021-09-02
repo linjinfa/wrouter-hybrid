@@ -32,7 +32,7 @@ succ:
   extends: .base
   cache: {}
   script:
-    - curl 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=693axxx6-7aoc-4bc4-97a0-0ec2sifa5aaa' -H 'Content-Type: application/json' -d '
+    - curl 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=bdf05e4e-d818-45d3-acc2-c1fe941bb6a2' -H 'Content-Type: application/json' -d '
        {
             "msgtype": "text",
             "text": {
