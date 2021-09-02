@@ -32,11 +32,13 @@ succ:
   extends: .base
   cache: {}
   script:
-    - xkc remind
-      -s markdown
-      -n "${GITLAB_USER_LOGIN}"
-      -m "【WRouter-Hybrid】<font color="warning">${CI_PROJECT_NAME}</font>执行CI构建成功。\n部署人：<font color="comment">${GITLAB_USER_LOGIN}</font>\n构建分支：<font color="comment">${CI_COMMIT_REF_NAME}</font>\n部署日志：[点击查看](${CI_PIPELINE_URL})"
-
+    - curl 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=693axxx6-7aoc-4bc4-97a0-0ec2sifa5aaa' -H 'Content-Type: application/json' -d '
+       {
+            "msgtype": "text",
+            "text": {
+                "content": "${GITLAB_USER_LOGIN}\n【WRouter-Hybrid】<font color="warning">${CI_PROJECT_NAME}</font>执行CI构建成功。\n部署人：<font color="comment">${GITLAB_USER_LOGIN}</font>\n构建分支：<font color="comment">${CI_COMMIT_REF_NAME}</font>\n部署日志：[点击查看](${CI_PIPELINE_URL})"
+            }
+       }'
   when: on_success
 
 fail:
