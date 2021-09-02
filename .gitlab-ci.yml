@@ -38,7 +38,7 @@ succ:
   extends: .base
   cache: {}
   script:
-    # - echo "${resultJsonStr}"
+    # - echo "${resultSuccessJsonStr}"
     - curl "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=${wxRobotKey}"
         -H "Content-Type:application/json"
         -d "${resultSuccessJsonStr}"
@@ -49,7 +49,7 @@ fail:
   extends: .base
   cache: {}
   script:
-    # - echo "${resultJsonStr}"
+    # - echo "${resultFailureJsonStr}"
     - curl "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=${wxRobotKey}"
         -H "Content-Type:application/json"
         -d "${resultFailureJsonStr}"
