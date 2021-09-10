@@ -1,47 +1,45 @@
 stages:
   - build
   - notify
-  
+
 variables:
-  wxRobotKey: "bdf05e4e-d818-45d3-acc2-c1fe941bb6a2"
-  resultSuccessJsonStr: '{"msgtype":"markdown","markdown":{"content":"${GITLAB_USER_LOGIN}\n【WRouter-Hybrid】<font color=\"warning\">${CI_PROJECT_NAME}</font>执行CI构建成功。\n部署人：<font color=\"comment\">${GITLAB_USER_LOGIN}</font>\n构建分支：<font color=\"comment\">${CI_COMMIT_REF_NAME}</font>\n部署日志：[点击查看](${CI_PIPELINE_URL})"}}'
-  resultFailureJsonStr: '{"msgtype":"markdown","markdown":{"content":"${GITLAB_USER_LOGIN}\n【WRouter-Hybrid】<font color=\"warning\">${CI_PROJECT_NAME}</font>执行CI构建失败。\n部署人：<font color=\"comment\">${GITLAB_USER_LOGIN}</font>\n失败流程：<font color=\"comment\">${CI_JOB_STAGE}</font>\n部署日志：[点击查看](${CI_PIPELINE_URL})"}}'
+  NPM_TOKEN: "XlQ/gB4CvwUgvwRD7A8gva6JmgtrGxYtzd7WB4iNSqI="
 
 cache:
-  key: "$CI_JOB_STAGE-$CI_COMMIT_REF_SLUG"
+  key: "node_modules"
   paths:
-    - node_modules
-    
+    - node_modules/
+
 .base:
   image: node:lts
   tags:
-    - autotest
+    - xiaoke-ci
 
 build:
   stage: build
   extends: .base
   script:
-    # - echo 'build dhdhhhhh'
-    - npm config set registry http://npm.weimob.com
     - npm install
-    - npm install weimob-gitlab-ci-tools@latest -g --registry http://npm.weimob.com
     - npm run build
+    - npm run semantic-release
   artifacts:
-      expire_in: 1 day
-      paths:
-        - es/
+    expire_in: 1 day
+    paths:
+      - es
   only:
-    - master
-    
+    refs:
+      - master
+      - beta
+
 succ:
   stage: notify
   extends: .base
   cache: {}
   script:
-    # - echo "${resultSuccessJsonStr}"
-    - curl "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=${wxRobotKey}"
-        -H "Content-Type:application/json"
-        -d "${resultSuccessJsonStr}"
+    - xkc remind
+      -s markdown
+      -n "${GITLAB_USER_LOGIN}"
+      -m "【销氪】<font color="warning">${CI_PROJECT_NAME}</font>执行CI构建成功。\n> 构建分支：<font color="comment">${CI_COMMIT_REF_NAME}</font>\n部署日志：[点击查看](${CI_PIPELINE_URL})"
   when: on_success
 
 fail:
@@ -49,14 +47,8 @@ fail:
   extends: .base
   cache: {}
   script:
-    # - echo "${resultFailureJsonStr}"
-    - curl "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=${wxRobotKey}"
-        -H "Content-Type:application/json"
-        -d "${resultFailureJsonStr}"
+    - xkc remind
+      -s markdown
+      -n "${GITLAB_USER_LOGIN}|di.dai"
+      -m "【销氪】<font color="warning">${CI_PROJECT_NAME}</font>执行CI构建失败。\n> 构建分支：<font color="comment">${CI_COMMIT_REF_NAME}</font>\n失败流程：<font color="comment">${CI_JOB_STAGE}</font>\n部署日志：[点击查看](${CI_PIPELINE_URL})"
   when: on_failure
-
-
-
-
-
-

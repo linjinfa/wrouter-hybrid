@@ -1,0 +1,46 @@
+{
+  "branches": [
+    "master",
+    {
+      "name": "beta",
+      "prerelease": true
+    }
+  ],
+  "plugins": [
+    [
+      "@semantic-release/commit-analyzer",
+      {
+        "preset": "conventionalcommits",
+        "releaseRules": [
+          { "type": "style", "release": false },
+          { "type": "feat", "release": "minor" },
+          { "type": "fix", "release": "patch" },
+          { "type": "chore", "release": false },
+          { "type": "docs", "release": false },
+          { "type": "refactor", "release": "patch" },
+          { "type": "test", "release": false }
+        ]
+      }
+    ],
+    [
+      "@semantic-release/release-notes-generator",
+      {
+        "preset": "conventionalcommits"
+      }
+    ],
+    [
+      "@semantic-release/changelog",
+      {
+        "changelogTitle": "# components-hybird 更新日志"
+      }
+    ],
+    ["@semantic-release/npm", {}],
+    [
+      "@semantic-release/git",
+      {
+        "assets": ["CHANGELOG.md", "package.json"],
+        "message": ":bookmark: chore(release): ${nextRelease.gitTag} [skip ci] \n\n${nextRelease.notes}"
+      }
+    ]
+  ]
+}
