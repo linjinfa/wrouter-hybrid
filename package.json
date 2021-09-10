@@ -75,6 +75,8 @@
     "build": "father-build",
     "release": "npm run build && npm publish",
     "async": "npm run build && yalc push",
+    "semantic-release": "semantic-release",
+    "prepare": "husky install",
     "watch": "nodemon --ignore dist/ --ignore node_modules/ --watch src/ -C -e js,css,ts,tsx,scss --debug -x 'npm run async'"
   },
   "eslintConfig": {
@@ -124,6 +126,10 @@
   "publishConfig": {
     "registry": "http://npm.weimob.com/"
   },
+  "files": [
+    "es",
+    "README.md"
+  ],
   "main": "es/index.js",
   "author": "aaron.lin",
   "license": "ISC"
