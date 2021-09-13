@@ -124,7 +124,7 @@
     ]
   },
   "publishConfig": {
-    "registry": "http://npm.weimob.com/"
+    "registry": "https://registry.npmjs.org/"
   },
   "files": [
     "es",
